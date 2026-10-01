@@ -1,0 +1,193 @@
+---
+
+const projects = [
+    {
+        id: "korekenke",
+        title: "Korekenke (Ejército del Perú)",
+        tags: ["React", "face-api.js", "Geofencing"],
+        shortDescription: "Módulo integral web para el control de asistencia. Lideré la implementación de funcionalidades avanzadas como geofencing y validación biométrica para asegurar la integridad de las marcaciones en tiempo real.",
+        coverImage: "/korekenke.png",
+        details: [
+            { img: "/korekenke1.png", text: "Pantalla principal de marcación con validación de geocerca activa." },
+            { img: "/korekenke2.png", text: "Flujo de autenticación biométrica facial." },
+            { img: "/korekenke3.png", text: "Dashboard de reportes en tiempo real para supervisores." }
+        ]
+    },
+    {
+        id: "servitec",
+        title: "Servitec Time",
+        tags: ["C# .NET", "WPF", "Hardware SDK"],
+        shortDescription: "Aplicación de escritorio conectada físicamente con terminales biométricos (ZKTeco, DigitalPersona). Resuelve la sincronización de datos de asistencia extraídos directamente del hardware para ser consumidos en la nube.",
+        coverImage: "/servitec.png",
+        details: [
+            { img: "/zkteco.jpg", text: "Dispositivo ZKTeco SpeedFace-VL4" },
+            { img: "/digital.jpg", text: "Digital Persona 4500" }
+        ]
+    },
+    {
+        id: "app-tecnica",
+        title: "Gestión Técnica (Tipo Uber)",
+        tags: ["React Native", "Firebase", "EAS Build"],
+        shortDescription: "Desarrollo end-to-end de una app móvil para técnicos en campo. Gestiona la asignación de rutas y reparaciones, incluyendo resolución de dependencias npm complejas y el empaquetado optimizado para iOS y Android.",
+        coverImage: "/app-tecnica.png",
+        details: [
+            { img: "/tecnica1.webp", text: "Vista de Usuario" },
+            { img: "/tecnica2.webp", text: "Vista de Técnico." }
+        ]
+    }
+];
+---
+
+<section id="projects" class="py-20 md:py-32 max-w-7xl mx-auto px-6 relative">
+
+    <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-5xl font-bold text-port-text">Proyectos</h2>
+        <div class="w-1 h-8 bg-port-accent mx-auto mt-6"></div>
+    </div>
+
+    <div class="flex flex-col gap-24 md:gap-32">
+        {projects.map((project, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+                    <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                        <div class={`flex-1 ${isEven ? 'order-2 md:order-1' : 'order-2 md:order-2'}`}>
+                            <h3 class="text-3xl font-bold text-port-text mb-4">{project.title}</h3>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                {project.tags.map(tag => (
+                                        <span class="bg-port-card text-port-text text-xs px-3 py-1 rounded-full border border-gray-700">
+                                    {tag}
+                                </span>
+                                ))}
+                            </div>
+
+                            <p class="text-port-gray mb-8 leading-relaxed">
+                                {project.shortDescription}
+                            </p>
+
+                            <div class="flex gap-4">
+                                <button
+                                        data-project-id={project.id}
+                                        class="btn-open-modal bg-port-accent text-port-bg font-bold py-2 px-6 rounded-sm hover:bg-opacity-90 transition-all cursor-pointer">
+                                    Ver detalles
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class={`flex-1 w-full group ${isEven ? 'order-1 md:order-2' : 'order-1 md:order-1'}`}>
+                            <div class="relative w-full aspect-video rounded-sm overflow-hidden border border-port-card shadow-2xl">
+                                <img src={project.coverImage} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            </div>
+                        </div>
+                    </div>
+            )
+        })}
+    </div>
+
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4 opacity-0 transition-opacity duration-300">
+
+        <div class="relative w-full max-w-5xl bg-port-bg border border-port-card rounded-sm shadow-2xl flex flex-col overflow-hidden max-h-[90vh]">
+
+            <div class="flex justify-between items-center p-4 border-b border-port-card">
+                <h4 id="modal-title" class="text-xl font-bold text-port-text">Título</h4>
+                <button id="btn-close-modal" class="text-port-gray hover:text-port-accent text-3xl leading-none">&times;</button>
+            </div>
+
+            <div class="relative flex-grow flex flex-col items-center justify-center p-4 bg-black/50">
+                <div class="relative w-full aspect-video md:aspect-[16/7] max-h-[60vh] flex justify-center items-center">
+                    <img id="modal-image" src="" alt="Detalle del proyecto" class="max-w-full max-h-full object-contain" />
+                </div>
+
+                <button id="btn-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-port-card/80 text-port-text hover:text-port-accent p-3 rounded-full flex items-center justify-center hover:bg-port-bg transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="btn-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-port-card/80 text-port-text hover:text-port-accent p-3 rounded-full flex items-center justify-center hover:bg-port-bg transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 bg-port-card">
+                <p id="modal-description" class="text-port-text text-center md:text-lg"></p>
+                <div class="text-center mt-2 text-port-gray text-sm">
+                    <span id="modal-counter">1 / 3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script define:vars={{ projects }}>
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalCounter = document.getElementById('modal-counter');
+
+    const btnClose = document.getElementById('btn-close-modal');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnOpenList = document.querySelectorAll('.btn-open-modal');
+
+    let currentProject = null;
+    let currentSlide = 0;
+
+    function updateModalContent() {
+        if (!currentProject || !currentProject.details.length) return;
+
+        const detail = currentProject.details[currentSlide];
+        modalImage.src = detail.img;
+        modalDescription.textContent = detail.text;
+        modalCounter.textContent = `${currentSlide + 1} / ${currentProject.details.length}`;
+
+        btnPrev.style.display = currentProject.details.length > 1 ? 'flex' : 'none';
+        btnNext.style.display = currentProject.details.length > 1 ? 'flex' : 'none';
+    }
+
+    btnOpenList.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const projectId = e.currentTarget.getAttribute('data-project-id');
+            currentProject = projects.find(p => p.id === projectId);
+
+            if (currentProject) {
+                currentSlide = 0;
+                modalTitle.textContent = currentProject.title;
+                updateModalContent();
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+
+                setTimeout(() => modal.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    function closeModal() {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    btnClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    btnNext.addEventListener('click', () => {
+        if (!currentProject) return;
+        currentSlide = (currentSlide + 1) % currentProject.details.length;
+        updateModalContent();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        if (!currentProject) return;
+        currentSlide = (currentSlide - 1 + currentProject.details.length) % currentProject.details.length;
+        updateModalContent();
+    });
+</script>

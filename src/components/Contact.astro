@@ -1,0 +1,56 @@
+---
+---
+<section id="contact" class="py-20 md:py-32 max-w-7xl mx-auto px-6 border-t border-port-card">
+
+    <div class="flex flex-col md:flex-row gap-16 md:gap-10">
+
+        <div class="flex-1 flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-px bg-port-accent"></div>
+                <span class="text-port-gray uppercase tracking-widest text-sm font-medium">Contacto</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-bold text-port-text mb-6">
+                ¿Tienes un proyecto? <br />
+                <span class="text-port-accent">¡Hablemos!</span>
+            </h2>
+
+            <p class="text-port-gray mb-8 leading-relaxed text-lg">
+                Estoy abierto a nuevas oportunidades, ya sea para un rol a tiempo completo o colaboración en proyectos. Si tienes una consulta o simplemente quieres conectar, escríbeme.
+            </p>
+
+            <div>
+                <p class="text-sm text-port-gray mb-1">Envíame un correo directo:</p>
+                <a href="mailto:joaquinhuarangaorihuela@gmail.com" class="text-xl text-port-text hover:text-port-accent transition-colors font-medium">
+                    joaquinhuarangaorihuela@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1">
+            <form action="#" method="POST" class="flex flex-col gap-8 w-full">
+
+                <div class="flex flex-col relative group">
+                    <label for="name" class="text-sm text-port-gray mb-1 transition-colors group-focus-within:text-port-accent">Nombre</label>
+                    <input type="text" id="name" name="name" required class="bg-transparent border-b border-port-card py-2 text-port-text outline-none focus:border-port-accent transition-colors w-full" />
+                </div>
+
+                <div class="flex flex-col relative group">
+                    <label for="email" class="text-sm text-port-gray mb-1 transition-colors group-focus-within:text-port-accent">Email</label>
+                    <input type="email" id="email" name="email" required class="bg-transparent border-b border-port-card py-2 text-port-text outline-none focus:border-port-accent transition-colors w-full" />
+                </div>
+
+                <div class="flex flex-col relative group">
+                    <label for="message" class="text-sm text-port-gray mb-1 transition-colors group-focus-within:text-port-accent">Mensaje</label>
+                    <textarea id="message" name="message" rows="4" required class="bg-transparent border-b border-port-card py-2 text-port-text outline-none focus:border-port-accent transition-colors w-full resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="bg-port-accent text-port-bg font-bold py-3 px-10 rounded-sm hover:bg-opacity-90 transition-all w-fit mt-2">
+                    Enviar mensaje
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    --color-port-bg: #141b27;
+    --color-port-accent: #ff6b58;
+    --color-port-card: #1f2937;
+    --color-port-text: #e5e7eb;
+    --color-port-gray: #9ca3af;
+}
