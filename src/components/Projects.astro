@@ -1,5 +1,4 @@
 ---
-
 const projects = [
     {
         id: "korekenke",
@@ -7,6 +6,7 @@ const projects = [
         tags: ["React", "face-api.js", "Geofencing"],
         shortDescription: "Módulo integral web para el control de asistencia. Lideré la implementación de funcionalidades avanzadas como geofencing y validación biométrica para asegurar la integridad de las marcaciones en tiempo real.",
         coverImage: "/korekenke.png",
+        link: "https://tramites.jbiene.com/",
         details: [
             { img: "/korekenke1.png", text: "Pantalla principal de marcación con validación de geocerca activa." },
             { img: "/korekenke2.png", text: "Flujo de autenticación biométrica facial." },
@@ -19,6 +19,7 @@ const projects = [
         tags: ["C# .NET", "WPF", "Hardware SDK"],
         shortDescription: "Aplicación de escritorio conectada físicamente con terminales biométricos (ZKTeco, DigitalPersona). Resuelve la sincronización de datos de asistencia extraídos directamente del hardware para ser consumidos en la nube.",
         coverImage: "/servitec.png",
+        link: "",
         details: [
             { img: "/zkteco.jpg", text: "Dispositivo ZKTeco SpeedFace-VL4" },
             { img: "/digital.jpg", text: "Digital Persona 4500" }
@@ -26,13 +27,27 @@ const projects = [
     },
     {
         id: "app-tecnica",
-        title: "Gestión Técnica (Tipo Uber)",
+        title: "Servitec Work (App tipo Uber para tecnicos)",
         tags: ["React Native", "Firebase", "EAS Build"],
         shortDescription: "Desarrollo end-to-end de una app móvil para técnicos en campo. Gestiona la asignación de rutas y reparaciones, incluyendo resolución de dependencias npm complejas y el empaquetado optimizado para iOS y Android.",
         coverImage: "/app-tecnica.png",
+        link: "https://play.google.com/store/apps/details?id=com.servitec.workapp&hl=es",
         details: [
             { img: "/tecnica1.webp", text: "Vista de Usuario" },
             { img: "/tecnica2.webp", text: "Vista de Técnico." }
+        ]
+    },
+    {
+        id: "top-up-shop",
+        title: "IM Shop",
+        tags: ["Next.js", "Tailwind CSS", "Supabase", "Mercado Pago"],
+        shortDescription: "Plataforma web de recargas automáticas de diamantes para Free Fire. Cuenta con diseño brutalista orientado a esports, integración con la API de FazerCards para validación de IDs y pasarela de pagos automatizada.",
+        coverImage: "/im1.png",
+        link: "https://www.imshop.pe/",
+        details: [
+            { img: "/im1.png", text: "Interfaz principal con diseño brutalista y tema de esports." },
+            { img: "/im2.png", text: "Catálogo dinámico de paquetes con precios ancla y etiquetas interactivas." },
+            { img: "/im3.png", text: "Flujo de validación de Player ID y pago encriptado." }
         ]
     }
 ];
@@ -66,12 +81,24 @@ const projects = [
                                 {project.shortDescription}
                             </p>
 
-                            <div class="flex gap-4">
+                            <div class="flex flex-wrap items-center gap-4">
                                 <button
                                         data-project-id={project.id}
                                         class="btn-open-modal bg-port-accent text-port-bg font-bold py-2 px-6 rounded-sm hover:bg-opacity-90 transition-all cursor-pointer">
                                     Ver detalles
                                 </button>
+
+                                {project.link && (
+                                        <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="flex items-center gap-2 text-port-gray hover:text-port-accent font-bold py-2 px-4 transition-colors"
+                                        >
+                                            Visitar proyecto
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        </a>
+                                )}
                             </div>
                         </div>
 
