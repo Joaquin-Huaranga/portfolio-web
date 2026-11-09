@@ -38,16 +38,16 @@ const projects = [
         ]
     },
     {
-        id: "top-up-shop",
-        title: "IM Shop",
-        tags: ["Next.js", "Tailwind CSS", "Supabase", "Mercado Pago"],
-        shortDescription: "Desarrollo Full Stack (End-to-End) de una plataforma transaccional de micro-pagos. Construida con Next.js y Supabase, incluye el diseño de la interfaz, creación de endpoints propios en el backend, consumo de la API de FazerCards para validación en tiempo real, e integración segura con Mercado Pago mediante Webhooks.",
-        coverImage: "/im1.png",
-        link: "https://www.imshop.pe/",
-        details: [
-            { img: "/im1.png", text: "Interfaz principal con diseño brutalista y tema de esports." },
-            { img: "/im2.png", text: "Catálogo dinámico de paquetes con precios ancla y etiquetas interactivas." },
-            { img: "/im3.png", text: "Flujo de validación de Player ID y pago encriptado." }
+        "id": "im-shop",
+        "title": "IM Shop",
+        "tags": ["Next.js", "Tailwind CSS", "Supabase", "Codestore API", "Resend"],
+        "shortDescription": "Desarrollo Full Stack de una plataforma de micro-pagos gaming. Integra la API de Codestore para inyección automatizada de saldo y un sistema de billetera virtual. Por requerimiento estricto del negocio, se orquestó un flujo de pagos asíncrono (Yape/Transferencias) gestionado a través de un panel de administración seguro (Supabase RLS) para la conciliación manual de comprobantes y control de clientes.",
+        "coverImage": "/im1.png",
+        "link": "https://imshop.games/",
+        "details": [
+            { "img": "/im1.png", "text": "Interfaz principal optimizada con diseño brutalista y temática de esports." },
+            { "img": "/im2.png", "text": "Flujo transaccional: Validación de Player ID e inyección automatizada de productos vía API externa." },
+            { "img": "/im3.png", "text": "Dashboard Multi-Admin para conciliación de pagos locales, gestión de saldos y ranking de fidelización." }
         ]
     }
 ];
